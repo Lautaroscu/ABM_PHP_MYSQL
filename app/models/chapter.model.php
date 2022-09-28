@@ -12,12 +12,7 @@
             $chapters = $query->fetchAll(PDO::FETCH_OBJ) ; //devuelve array de objetos
             return $chapters ;
         }
-        function addDescription($description , $valoration){
-           $query =  $this->db->prepare('INSERT INTO capitulos(descripcion , valoracion) VALUES (? , ?)') ;
-            $query->execute([$description , $valoration]) ;
-            return $this->db->lastInsertId() ;
-            
-        }
+       
     }
 
         
