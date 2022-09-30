@@ -9,12 +9,12 @@ class ChapterController{
         $this->model = new ChapterModel() ;
         $this->view = new ChapterView() ;
     }
-    function showChapters(){
-        //agarro los datos del modelo
-        $chapter = $this->model->getAllChapters() ;
-        //y los muestro ingresando a la clase view
-        $this->view->showChapter($chapter) ;
-
-    }
+    function showAllChapters(){
+         //agarro los datos del modelo
+         $chapter = $this->model->getAllChapters() ;
+         //y los muestro ingresando a la clase view
+         $this->view->showAllChapter($chapter) ;
+}
+  
     
 }

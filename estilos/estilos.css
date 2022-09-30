@@ -1,6 +1,47 @@
-.table{
-    text-align: center;
-}
+
 .title{
     font-weight: bold;
 }
+.row{
+display: flex;
+flex-direction: row;
+}
+.card{
+   margin: 4% 3% 4% 3%;
+    width: 16rem;
+}
+.brakingbadimg img {
+   height: 150px;
+   background-color: rgb(76, 69, 69);
+   border-radius:   20px;
+   padding-left: 9%;
+}
+.brakingbadimg{
+    padding: 3%;
+}
+
+
+.logo{
+    background-color: black;
+    margin-right: 85% ;
+    padding-left: 1%;
+}
+header h1{
+    color: red;}
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+nav li a{
+    background-color: aliceblue;
+    border-radius: 50px;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+nav li{
+    margin-left: 10px ;
+}
+
