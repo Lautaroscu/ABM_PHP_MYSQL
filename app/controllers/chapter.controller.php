@@ -16,5 +16,11 @@ class ChapterController{
          $this->view->showAllChapter($chapter) ;
 }
   
+function showTemp($season){
+    $season = $this->model->getSeasonAllChap($temp);
+    $allSeason = $this->model->getAllSeason();
+    $this->view->showTemp($temp,$allTemp);
+
+}
     
 }

@@ -1,11 +1,16 @@
 <?php 
 require 'app/controllers/chapter.controller.php' ;
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-$action = 'serie' ;
-if(!empty(['action'])){
-    $action = 'serie' ;
+
+// lee la acción
+if (!empty($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = 'serie'; // acción por defecto si no envían
 }
-$params = explode('/' , $action) ;
+
+
+$params = explode('/', $action);
 $controller = new ChapterController() ;
 switch ($params[0]) {
     case 'serie':
@@ -18,10 +23,12 @@ switch ($params[0]) {
         $id = $params[1] ;
         $controller->deleteChapter($id) ;
         break ;
-   
-    
+    case 'temp':
+        $controller->showTemp($params[1]);
+    break;
     default:
     echo 'error 404 not found' ;
         break;
 }
+
 
