@@ -1,21 +1,22 @@
 {include file="templates/header.tpl"}
 <section class="seasons">
-<div class=""> 
 <div class="brakingbadimg">
     <img src="img/breakingbadimg.png" alt="logo bb">
 </div>
-<select name="seasons" class="form-control" type="button">
-{foreach from=$allseason item=$season}
-<option value="{$season->titulo_temp}">{$season->titulo_temp}</option>
-
+<a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  Temporadas 
+</a>
+<ul class="dropdown-menu">
+{foreach from=$allTemp item=$temp}
+  <li><a class="dropdown-item" href="season/{$temp->titulo_temp}">Temporada {$temp->titulo_temp}</a></li>
 {{/foreach}}
-</div>
-</select>
+</ul>
+
 </div>
 </section>
 <section class="chapters">  
 <div class="row">
-           {foreach from=$chapters item=$chapter}
+           {foreach from=$tempCap item=$chapter}
     <div class="card">
             <img src="img/imagenoneone.jpg"  class="card-img-top" alt="...">
             <div class="card-body">

@@ -14,7 +14,7 @@ $params = explode('/', $action);
 $controller = new ChapterController() ;
 switch ($params[0]) {
     case 'serie':
-       $controller->showAllChapters() ;
+       $controller->showTemp() ;
         break;
     case 'add' : 
         $controller->addChapter() ;
@@ -23,8 +23,13 @@ switch ($params[0]) {
         $id = $params[1] ;
         $controller->deleteChapter($id) ;
         break ;
-    case 'temp':
+    case 'season':
+        if(!empty($params[1]))
         $controller->showTemp($params[1]);
+        else{
+             $controller->showTemp($params[0]) ;
+        }
+       
     break;
     default:
     echo 'error 404 not found' ;
