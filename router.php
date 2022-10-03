@@ -6,14 +6,14 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'serie'; // acción por defecto si no envían
+    $action = 'home'; // acción por defecto si no envían
 }
 
 
 $params = explode('/', $action);
 $controller = new ChapterController() ;
 switch ($params[0]) {
-    case 'serie':
+    case 'home':
        $controller->showAllChapters() ;
         break;
     case 'add' : 

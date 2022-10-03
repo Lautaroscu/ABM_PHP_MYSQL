@@ -44,4 +44,8 @@ nav ul{
 nav li{
     margin-left: 10px ;
 }
+.aboutchapter{
+    display: flex;
+    justify-content: center;
+}
 

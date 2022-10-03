@@ -24,7 +24,7 @@ class ChapterController{
 }
   
 function showTemp($id = null){
-    $temp = $this->season_model->getTempAllCap($id);
+    $temp = $this->chapter_model->getTempAllCap($id);
     $allTemp = $this->season_model->getAllTemp();
     $this->season_view->showTemp($temp,$allTemp)  ;
 

@@ -12,11 +12,17 @@
             $chapters = $query->fetchAll(PDO::FETCH_OBJ) ; //devuelve array de objetos
             return $chapters ;
         }
+        function getTempAllCap($temp){
+            $query = $this->db->prepare("SELECT * FROM `capitulos` WHERE id_temp_fk = ?") ;
+            $query->execute([$temp]);
+            $chapters = $query->fetchAll(PDO::FETCH_OBJ) ; //devuelve array de objetos
+            return $chapters ;
+           }
        
-       function aboutChaptersById($id_cap){
-         $query = $this->db->prepare('SELECT * FROM capitulos WHERE id_capitulo = ? 
+       function aboutChaptersById($titulo){
+         $query = $this->db->prepare('SELECT * FROM capitulos WHERE id_capitulo = ?
           ') ;
-         $query->execute([$id_cap]) ;
+         $query->execute([$titulo]) ;
          $chapter = $query->fetchAll(PDO::FETCH_OBJ) ;
          return $chapter ;
        }
