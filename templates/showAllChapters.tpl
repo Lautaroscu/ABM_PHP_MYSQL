@@ -4,11 +4,11 @@
     <img src="img/breakingbadimg.png" alt="logo bb">
 </div>
 <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-  Temporadas
+  Temporadas 
 </a>
 <ul class="dropdown-menu">
-{foreach from=$allTemp item=$temp}
-  <li><a class="dropdown-item" href="season/{$temp->titulo_temp}">Temporada {$temp->titulo_temp}</a></li>
+{foreach from=$seasons item=$season}
+  <li><a class="dropdown-item" href="season/{$season->titulo_temp}">Temporada {$season->titulo_temp}</a></li>
 {{/foreach}}
 </ul>
 
@@ -16,18 +16,16 @@
 </section>
 <section class="chapters">  
 <div class="row">
-           {foreach from=$tempCap item=$chapter}
+           {foreach from=$chapters item=$chapter}
     <div class="card">
             <img src="img/imagenoneone.jpg"  class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"> {$chapter->numero_cap} {$chapter->titulo_cap}</h5>
                 <p class="card-text">{$chapter->descripcion|truncate:50}</p>
-                <a href="aboutChapter/{$chapter->id_capitulo}" class="btn btn-primary">Ver mas</a>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
     </div>
         {{/foreach}}
 </div>
-
 </section>   
-<p class="mt-3"><small>Mostrando {$count} capitulos</small></p>
 {include file="templates/footer.tpl"} 
