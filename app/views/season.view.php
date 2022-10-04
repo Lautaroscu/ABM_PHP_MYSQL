@@ -1,13 +1,26 @@
 <?php 
+require_once './libs/smarty/libs/Smarty.class.php';
 class SeasonView{
-    function showTemp($tempCap,$allTemp ){
-        $smarty = new Smarty() ;
-        $smarty->assign('tempCap', $tempCap);
-        $smarty->assign('count', count($tempCap));
-        $smarty->assign ('allTemp',$allTemp);
-        $smarty->display('templates/showTemp.tpl');
+    private $smarty;
 
+    function __construct(){
+        $this->smarty = new Smarty();
     }
+    function showSeason($seasons){
+       // $this->smarty->assign ('count',count($chapters));
+       $this->smarty->assign ('count', count($seasons));
+        $this->smarty->assign ('seasons',$seasons);
+        $this->smarty->display('templates/home.tpl');
+
+    }   
+   
+    // function showAllTemp($seasons, $seasonFilter){
+    //     $this->smarty->assign('seasons', $seasons);
+    //     $this->smarty->display('home.tpl');
+
+
+
+    // }
 
 
 }

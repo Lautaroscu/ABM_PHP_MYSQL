@@ -7,19 +7,26 @@
                 $this->smarty = new Smarty();
             }
 
-         function showAllChapter($chapters, $seasons){
-             $smarty = new Smarty() ;
-             $smarty->assign('count' , count($chapters)) ;
-             $smarty->assign('chapters' , $chapters) ;
-             $smarty->assign('seasons' , $seasons) ;
-             $smarty->display('templates/showAllChapters.tpl') ;
+         function showChapterFilter($chapters){
+             $this->smarty->assign('count' , count($chapters)) ;
+             $this->smarty->assign('chapters' , $chapters) ;
+             $this->smarty->display('templates/showChapters.tpl') ;
          }
     
    
     function showChapterById($chapters){
-        $smarty = new Smarty() ;
-        $smarty->assign('chapters', $chapters); 
-        $smarty->assign('count', count($chapters));
-        $smarty->display('templates/showAboutChapter.tpl');
+        $this->smarty->assign('chapters', $chapters); 
+        $this->smarty->assign('count', count($chapters));
+        $this->smarty->display('templates/showAboutChapter.tpl');
+    }
+    function showForm($seasons){
+        $this->smarty->assign('seasons' , $seasons) ;
+        $this->smarty->display('form_chapter_ABM.tpl') ;
+    }
+    function showHeader($seasons = null){
+        $this->smarty->assign('seasons' , $seasons) ;
+
+        $this->smarty->display('header.tpl') ;
+
     }
 }

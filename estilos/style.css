@@ -1,3 +1,8 @@
+body{
+     background-color: rgb(26, 24, 24);
+     color: white;
+
+}
 
 .title{
     font-weight: bold;
@@ -9,15 +14,18 @@ flex-direction: row;
 .card{
    margin: 4% 3% 4% 3%;
     width: 16rem;
+    background-color: black;
 }
 .brakingbadimg img {
    height: 150px;
    background-color: rgb(76, 69, 69);
-   border-radius:   20px;
    padding-left: 9%;
+   background: none;
 }
 .brakingbadimg{
     padding: 3%;
+
+
 }
 
 
@@ -47,5 +55,26 @@ nav li{
 .aboutchapter{
     display: flex;
     justify-content: center;
+}
+.seasonDescrip span {
+    color: #a3a3a3;
+
+}
+.seasonDescrip p{
+    font-size: 16px;
+}
+
+table{
+    text-align: center;
+    
+}
+.form-container {
+   display: flex;
+   justify-content: flex-start;
+    
+}
+.form-container div {
+    flex-direction: row;
+    display: flex;
 }
 

@@ -1,4 +1,4 @@
-{include file="templates/header.tpl"}
+
 <div class="aboutchapter">
 {foreach from=$chapters item=$chapter}
   
