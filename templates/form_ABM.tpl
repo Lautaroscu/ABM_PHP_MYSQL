@@ -10,5 +10,5 @@
 
 <label>Estreno</label>
 <input  name="premiere"  type="text">
-<button type="submit">Submit</button>
+<button class="btn btn-secondary disabled" type="submit">Submit</button>
 </form>

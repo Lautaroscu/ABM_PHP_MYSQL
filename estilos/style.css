@@ -1,80 +1,104 @@
-body{
-     background-color: rgb(26, 24, 24);
-     color: white;
+body {
+    background-color: rgb(26, 24, 24);
+    color: white;
 
 }
 
-.title{
+.title {
     font-weight: bold;
 }
-.row{
-display: flex;
-flex-direction: row;
+
+.row {
+    display: flex;
+    flex-direction: row;
 }
-.card{
-   margin: 4% 3% 4% 3%;
+
+.card {
+    margin: 4% 3% 4% 3%;
     width: 16rem;
     background-color: black;
 }
+
 .brakingbadimg img {
-   height: 150px;
-   background-color: rgb(76, 69, 69);
-   padding-left: 9%;
-   background: none;
+    height: 150px;
+    background-color: rgb(76, 69, 69);
+    padding-left: 9%;
+    background: none;
 }
-.brakingbadimg{
+
+.brakingbadimg {
     padding: 3%;
 
 
 }
 
 
-.logo{
+.logo {
     background-color: black;
-    margin-right: 85% ;
+    margin-right: 85%;
     padding-left: 1%;
 }
-header h1{
-    color: red;}
-header{
+
+header h1 {
+    color: red;
+}
+
+header {
     background-color: black;
     display: flex;
     justify-content: space-between;
 }
-nav li a{
+
+nav li a {
     background-color: aliceblue;
     border-radius: 50px;
 }
-nav ul{
+
+nav ul {
     display: flex;
     flex-direction: row;
 }
-nav li{
-    margin-left: 10px ;
+
+nav li {
+    margin-left: 10px;
 }
-.aboutchapter{
+
+.aboutchapter {
     display: flex;
     justify-content: center;
 }
+
 .seasonDescrip span {
     color: #a3a3a3;
 
 }
-.seasonDescrip p{
+
+.seasonDescrip p {
     font-size: 16px;
 }
 
-table{
+table {
     text-align: center;
-    
+
 }
+
 .form-container {
-   display: flex;
-   justify-content: flex-start;
-    
+    display: flex;
+    justify-content: flex-start;
+
 }
+
 .form-container div {
     flex-direction: row;
     display: flex;
 }
 
+.actions {
+    padding-top: 4%;
+    margin-bottom: 20%;
+    margin-right: 0;
+}
+
+.dropdown-menu {
+    text-align: center;
+}

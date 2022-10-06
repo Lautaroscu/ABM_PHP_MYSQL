@@ -1,32 +1,45 @@
 <?php
-    require_once './libs/smarty/libs/Smarty.class.php';
-    class ChapterView{
-            private $smarty;
+require_once './libs/smarty/libs/Smarty.class.php';
+class ChapterView
+{
+    private $smarty;
 
-            function __construct(){
-                $this->smarty = new Smarty();
-            }
+    function __construct()
+    {
+        $this->smarty = new Smarty();
+    }
 
-         function showChapterFilter($chapters){
-             $this->smarty->assign('count' , count($chapters)) ;
-             $this->smarty->assign('chapters' , $chapters) ;
-             $this->smarty->display('templates/showChapters.tpl') ;
-         }
-    
-   
-    function showChapterById($chapters){
-        $this->smarty->assign('chapters', $chapters); 
+    function showChapterFilter($chapters)
+    {
         $this->smarty->assign('count', count($chapters));
-        $this->smarty->display('templates/showAboutChapter.tpl');
+        $this->smarty->assign('chapters', $chapters);
+        $this->smarty->display('showChapters.tpl');
     }
-    function showForm($seasons){
-        $this->smarty->assign('seasons' , $seasons) ;
-        $this->smarty->display('form_chapter_ABM.tpl') ;
+
+
+    function showChapterById($chapters)
+    {
+        $this->smarty->assign('chapters', $chapters);
+        $this->smarty->assign('count', count($chapters));
+        $this->smarty->display('showAboutChapter.tpl');
     }
-    function showHeader($seasons = null){
-        $this->smarty->assign('seasons' , $seasons) ;
+    function showFormUpdate($chapters)
+    {
+        //var_dump($chapters) ;
+        $this->smarty->assign('chapters', $chapters);
+        $this->smarty->display('form_chapter_ABM.tpl');
+    }
+    function showForm2($chapters)
+    {
+        //var_dump($chapters) ;
+        $this->smarty->assign('chapters', $chapters);
+        $this->smarty->display('form2_chapter.tpl');
+    }
 
-        $this->smarty->display('header.tpl') ;
+    function showHeader($seasons = null)
+    {
+        $this->smarty->assign('seasons', $seasons);
 
+        $this->smarty->display('header.tpl');
     }
 }

@@ -1,25 +1,22 @@
-{include file="templates/header.tpl"}
-<form method="POST" action="add" class="my-4">
+<form method="post" action="update" class="my-4">
+    {foreach from=$chapters item=$chapter}
+        <label>Titulo de capitulo</label>
 
-    <label>Titulo de capitulo</label>
-    <input name="title"  type="text" >
-
-
-    <label>Descripcion</label>
-    <input  name="description"  type="text" >
+        <input name="title" type="text" value="{$chapter->titulo_cap}">
 
 
-    <label>Numero de capitulo</label>
-    <input  name="num_cap"  type="text">
+        <label>Descripcion</label>
+        <input name="description" type="text" value="{$chapter->descripcion}">
 
 
-    
-     <select name="season">
-     {foreach from=$seasons item=$season}
-        <option value="{$season->titulo_temp}" >Temporada {$season->titulo_temp}</option>
-     {{/foreach}}
-     </select>
+        <label>Numero de capitulo</label>
+        <input name="num_cap" type="text" value="{$chapter->numero_cap}">
 
-    
-    <button type="submit">Submit</button>
+
+
+        <select name="season">
+            <option value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
+        </select>
+    {{/foreach}}
+    <button class="" type="submit">Submit</button>
 </form>
