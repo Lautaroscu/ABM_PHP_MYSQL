@@ -14,7 +14,7 @@
           Acciones
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="update/{$chapter->id_capitulo}">Editar</a></li>
+          <li><a class="dropdown-item" href="showUpdate/{$chapter->id_capitulo}">Editar</a></li>
           <li><a class="dropdown-item" href="delete/{$chapter->id_capitulo}">Borrar</a></li>
         </ul>
 

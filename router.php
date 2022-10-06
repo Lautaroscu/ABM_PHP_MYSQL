@@ -23,13 +23,16 @@ switch ($params[0]) {
         $id = $params[1];
         $controller->deleteChapter($id);
         break;
-    case 'update':
-        $id = $params[1] ;
+    case 'showUpdate':
+        $id = $params[1];
         if (!empty($id))
             $controller->editChapter($id);
-         else  $controller->editChapter();
 
+        break;
+    case 'update' :
+        $controller->updateChapter() ;
 
+        break ;
     case 'season':
         if (!empty($params[1]))
             $controller->showChaptersbySeason($params[1]);
@@ -39,9 +42,8 @@ switch ($params[0]) {
     case 'aboutchapter':
         if (!empty($params[1])) {
             $controller->aboutChapters($params[1]);
-        }
-        else
-            $controller->aboutChapters($params[0]) ;
+        } else
+            $controller->aboutChapters($params[0]);
         break;
 
     default:

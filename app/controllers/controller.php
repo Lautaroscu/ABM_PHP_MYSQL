@@ -37,7 +37,6 @@ class Controller
     {
         $chapter = $this->chapter_model->aboutChaptersById($id_cap);
         $this->chapter_view->showHeader();
-        $this->chapter_view->showFormUpdate($chapter);
         $this->chapter_view->showChapterById($chapter);
     }
     function addChapter()
@@ -58,10 +57,15 @@ class Controller
         $this->chapter_view->showFormUpdate($chapter);
         //var_dump($chapter) ;
     }
+    function updateChapter(){
+        var_dump($this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description'])) ;
+        $this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description']);
+        header("Location: " . BASE_URL);
+    }
 
     function deleteChapter($id)
     {
         $this->chapter_model->deleteChapter($id);
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL );
     }
 }

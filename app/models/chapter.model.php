@@ -40,11 +40,11 @@ class ChapterModel
         $query->execute([$title, $description, $num_cap, $season]);
         return $this->db->lastInsertId();
     }
-    function updateChapter($id)
+    function updateChapter($id, $titulo_cap , $descripcion)
     {
-        $query = $this->db->prepare('UPDATE capitulos SET titulo_cap , descripcion , numero_cap , id_temp_fk WHERE id_capitulo = ?)VALUES ( ?');
-        $query->execute([$id]);
-        return $this->db->lastInsertId();
+        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?  , descripcion = ? WHERE capitulos.id_capitulo = ?");
+        $query->execute(array( $titulo_cap , $descripcion , $id));
+        
     }
     function deleteChapter($id)
     {
