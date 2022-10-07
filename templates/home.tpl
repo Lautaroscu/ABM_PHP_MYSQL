@@ -18,7 +18,9 @@
                    <th>Temporadas</th>
                    <th>Descripcion</th>
                    <th>Fecha de Estreno</th>
+                   {if isset($smarty.session.USER_ID)}
                    <th>Acciones</th>
+                   {{/if}}
                 </thead>
 
                 <tbody>
@@ -27,11 +29,14 @@
                          <td>{$season->titulo_temp}</td>
                          <td>{$season->descripcion}</td>
                          <td>{$season->fecha_estreno}</td>
+                         {if isset($smarty.session.USER_ID)}
                          <td>
+                         
 
                             <a href="delete/{$season->id_temp}" type='button' class='btn btn-danger  disabled'>BORRAR</a>
-                            <a href="editar/{$season->id_temp}" type='button' class="btn btn-primary disabled">EDITAR</a>
+                            <a href="editar/{$season->id_temp}" type='button' class="btn btn-primary disabled">EDITAR</a>                 
                          </td>
+                        {{/if}}
                       </tr>
                    {{/foreach}}
                 </tbody>

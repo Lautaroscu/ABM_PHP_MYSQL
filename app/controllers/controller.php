@@ -3,6 +3,7 @@ require 'app/models/chapter.model.php';
 require 'app/views/chapter.view.php';
 require 'app/models/season.model.php';
 require 'app/views/season.view.php';
+require 'app/helpers/auth.helper.php' ;
 
 class Controller
 {
@@ -10,6 +11,7 @@ class Controller
     private $chapter_view;
     private $season_model;
     private $season_view;
+    private $helper;
 
     function __construct()
     {
@@ -17,14 +19,17 @@ class Controller
         $this->chapter_view = new ChapterView();
         $this->season_model = new SeasonModel();
         $this->season_view = new SeasonView();
+        $this->helper = new AuthHelper() ;
     }
 
 
     function showHome()
-    {
+    { 
         $seasons = $this->season_model->getAllSeason();
         $this->chapter_view->showHeader($seasons);
         $this->season_view->showSeason($seasons);
+       
+       
     }
     function showChaptersbySeason($id = null)
     {
@@ -32,6 +37,7 @@ class Controller
         $chapters = $this->chapter_model->getChaptersBySeason($id);
         $this->chapter_view->showHeader($seasons);
         $this->chapter_view->showChapterFilter($chapters);
+       
     }
     function aboutChapters($id_cap = null)
     {
@@ -51,16 +57,18 @@ class Controller
             header("Location: " . BASE_URL);
         }
     }
-    function editChapter($id = null)
+    function editChapter($id)
     {
+        $this->helper->checkLoggedIn() ;
         $chapter = $this->chapter_model->aboutChaptersById($id);
         $this->chapter_view->showFormUpdate($chapter);
+       
         //var_dump($chapter) ;
     }
     function updateChapter(){
-        var_dump($this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description'])) ;
-        $this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description']);
-        header("Location: " . BASE_URL);
+      $id =  $this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description']);
+               header("Location: " . BASE_URL );
+
     }
 
     function deleteChapter($id)

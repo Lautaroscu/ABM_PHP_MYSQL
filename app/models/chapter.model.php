@@ -42,7 +42,7 @@ class ChapterModel
     }
     function updateChapter($id, $titulo_cap , $descripcion)
     {
-        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?  , descripcion = ? WHERE capitulos.id_capitulo = ?");
+        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?  , descripcion = ? WHERE id_capitulo = ?");
         $query->execute(array( $titulo_cap , $descripcion , $id));
         
     }

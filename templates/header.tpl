@@ -40,12 +40,15 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="home">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="about">About</a>
-            </li>
+          {if !isset($smarty.session.USER_ID)}
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="login">Inciar Sesion</a>
             </li>
+             {else}
+              <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="logout">Cerrar Sesion({$smarty.session.USER_EMAIL})</a>
+            </li>
+            {{/if}}
           </ul>
         </div>
       </div>
