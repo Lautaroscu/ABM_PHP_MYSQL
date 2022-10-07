@@ -20,16 +20,24 @@ class Controller
         $this->season_model = new SeasonModel();
         $this->season_view = new SeasonView();
         $this->helper = new AuthHelper() ;
+        if(strnatcasecmp(phpversion(), '5.4.0') >= 0){
+            if(session_status() == PHP_SESSION_NONE){
+                session_start() ;
+            }
+
+        }
+        else
+        {
+            if(session_id() == ''){
+                session_start() ;
+            }
+        }
     }
-
-
     function showHome()
     { 
         $seasons = $this->season_model->getAllSeason();
         $this->chapter_view->showHeader($seasons);
         $this->season_view->showSeason($seasons);
-       
-       
     }
     function showChaptersbySeason($id = null)
     {
@@ -47,6 +55,8 @@ class Controller
     }
     function addChapter()
     {
+                $this->helper->checkLoggedIn() ;
+
         if (!empty($_POST['title'] && $_POST['description'] && $_POST['num_cap'] && $_POST['season'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -59,6 +69,7 @@ class Controller
     }
     function editChapter($id)
     {
+   
         $this->helper->checkLoggedIn() ;
         $chapter = $this->chapter_model->aboutChaptersById($id);
         $this->chapter_view->showFormUpdate($chapter);
@@ -66,13 +77,17 @@ class Controller
         //var_dump($chapter) ;
     }
     function updateChapter(){
+     
+        $this->helper->checkLoggedIn() ;
       $id =  $this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description']);
                header("Location: " . BASE_URL );
 
     }
 
-    function deleteChapter($id)
+    function deleteChapter($id = null)
     {
+     
+        $this->helper->checkLoggedIn() ;
         $this->chapter_model->deleteChapter($id);
         header("Location: " . BASE_URL );
     }

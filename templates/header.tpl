@@ -44,7 +44,7 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="login">Inciar Sesion</a>
             </li>
-             {else}
+          {else}
               <li class="nav-item">
               <a class="nav-link" aria-current="page" href="logout">Cerrar Sesion({$smarty.session.USER_EMAIL})</a>
             </li>

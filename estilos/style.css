@@ -102,3 +102,15 @@ table {
 .dropdown-menu {
     text-align: center;
 }
+.error {
+   display: flex;
+    justify-content: center;
+    
+}
+.error h1{
+    font-size: 120px;
+}
+.error p{
+    text-align: left;
+}    
+

@@ -16,15 +16,20 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         $controller = new Controller();
-        $authController = new authController() ;
+       
         $controller->showHome();
         break;
     case 'add':
         $controller->addChapter();
         break;
     case 'delete':
+        $controller = new Controller();
         $id = $params[1];
+        if($id)
         $controller->deleteChapter($id);
+        else 
+        $controller->deleteChapter($params[0]);
+
         break;
     case 'showUpdate':
         $controller = new Controller();

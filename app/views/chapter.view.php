@@ -7,6 +7,7 @@ class ChapterView
     function __construct()
     {
         $this->smarty = new Smarty();
+       
     }
 
     function showChapterFilter($chapters)
@@ -42,4 +43,5 @@ class ChapterView
 
         $this->smarty->display('header.tpl');
     }
+
 }

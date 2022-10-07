@@ -10,6 +10,18 @@ class authController{
     function __construct(){
         $this->auth_view = new authView() ;
         $this->user_model = new userModel() ;
+        if(strnatcasecmp(phpversion(), '5.4.0') >= 0){
+            if(session_status() == PHP_SESSION_NONE){
+                session_start() ;
+            }
+
+        }
+        else
+        {
+            if(session_id() == ''){
+                session_start() ;
+            }
+        }
     }
     function showFormLogin(){
         $this->auth_view->showFormLogin() ;
