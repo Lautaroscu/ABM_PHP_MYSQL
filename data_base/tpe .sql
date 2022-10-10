@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 22:27:25
+-- Tiempo de generación: 10-10-2022 a las 03:05:08
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -41,8 +41,7 @@ CREATE TABLE `capitulos` (
 --
 
 INSERT INTO `capitulos` (`id_capitulo`, `titulo_cap`, `descripcion`, `numero_cap`, `id_temp_fk`, `image`) VALUES
-(1, 'Principio del finn', 'Un profesor de química de escuela secundaria recurre a la venta de drogas para mantener a su familiaaa', 1, 1, './htdocs/TpeWeb2/img/imagenoneone.jpg'),
-(2, 'El gato en la bolsa', 'Luego del fracaso de su primer negocio de drogas, Walt y Jesse deben deshacerse de dos cadáveres. Skyler sospecha que su marido no está involucrado en nada bueno.\r\n\r\n', 2, 1, ''),
+(1, 'Principio del fin', 'Un profesorr de química de escuela secundaria recurre a la venta de drogas para mantener a su familia', 1, 1, ''),
 (3, 'Y la bolsa en el rio', 'Mientras Walt limpia el desorden que quedó tras su primer negocio de drogas, piensa en decirle a Skyler la verdad sobre su enfermedad.\r\n\r\n', 3, 1, ''),
 (4, 'Cancer', 'Al ser forzado a contar la verdad acerca de su enfermedad, Walt enfrenta el problema de cómo pagar una serie de caros tratamientos contra el cáncer.\r\n\r\n', 4, 1, ''),
 (5, 'Materia gris', 'Skyler organiza una intervención para convencer a Walt de que acepte la generosa oferta de su excompañero de investigaciones de pagar el tratamiento contra el cáncer.\r\n\r\n', 5, 1, ''),
@@ -102,8 +101,6 @@ INSERT INTO `capitulos` (`id_capitulo`, `titulo_cap`, `descripcion`, `numero_cap
 (60, 'Ozymandias', 'Todos deben enfrentar circunstancias radicalmente distintas. Todos, sin excepción.\r\n\r\n', 14, 5, ''),
 (61, 'Pizarra de granito', 'Los sucesos que se iniciaron hace mucho tiempo marchan hacia una conclusión.\r\n\r\n', 15, 5, ''),
 (62, 'Felina', 'El final de la serie.\r\n\r\n', 16, 5, ''),
-(118, 'aa', 'aa', 2, 1, ''),
-(120, 'a', 'a', 1, 2, ''),
 (121, 'e', 'e', 4, 2, '');
 
 -- --------------------------------------------------------
@@ -130,6 +127,25 @@ INSERT INTO `temporadas` (`id_temp`, `titulo_temp`, `descripcion`, `fecha_estren
 (4, '4', 'Bryan Cranston regresa en una nueva temporada como Walter White, quien sigue elaborando metanfetaminas e intentando superar al narcotraficante Gus Fring.\r\n\r\n', 2011),
 (5, '5', 'En la temporada final, Walt ya no tiene que esforzarse por ser malo. Su vida sigue en una espiral descendente que le lleva a lo más alto de un imperio de la droga.\r\n\r\n', 2012);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id_user`, `email`, `password`) VALUES
+(1, 'userharcod@email.com', '$2a$12$qE1FYHz9TKndADayjuxQ8ek1MEuiHCaflQlC0n19/MGP/Xvk2IKYS');
+
 --
 -- Índices para tablas volcadas
 --
@@ -148,6 +164,12 @@ ALTER TABLE `temporadas`
   ADD PRIMARY KEY (`id_temp`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -155,13 +177,19 @@ ALTER TABLE `temporadas`
 -- AUTO_INCREMENT de la tabla `capitulos`
 --
 ALTER TABLE `capitulos`
-  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT de la tabla `temporadas`
 --
 ALTER TABLE `temporadas`
-  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

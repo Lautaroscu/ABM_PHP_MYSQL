@@ -18,22 +18,20 @@ class ChapterView
     }
 
 
-    function showChapterById($chapters)
+    function showChapterById($chapter)
     {
-        $this->smarty->assign('chapters', $chapters);
-        $this->smarty->assign('count', count($chapters));
+        $this->smarty->assign('chapter', $chapter);
         $this->smarty->display('showAboutChapter.tpl');
     }
-    function showFormUpdate($chapters)
+    function showFormUpdate($chapter)
     {
-        //var_dump($chapters) ;
-        $this->smarty->assign('chapters', $chapters);
+        $this->smarty->assign('chapter', $chapter);
         $this->smarty->display('form_chapter_ABM.tpl');
     }
     function showForm2($chapters)
     {
-        //var_dump($chapters) ;
         $this->smarty->assign('chapters', $chapters);
+
         $this->smarty->display('form2_chapter.tpl');
     }
 

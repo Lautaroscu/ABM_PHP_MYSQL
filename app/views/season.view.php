@@ -10,19 +10,12 @@ class SeasonView
     }
     function showSeason($seasons)
     {
-        // $this->smarty->assign ('count',count($chapters));
         $this->smarty->assign('count', count($seasons));
         $this->smarty->assign('seasons', $seasons);
         $this->smarty->display('home.tpl');
     }
-
-    // function showAllTemp($seasons, $seasonFilter){
-    //     $this->smarty->assign('seasons', $seasons);
-    //     $this->smarty->display('home.tpl');
-
-
-
-    // }
-
-
+    function showUpdateSeason($season){
+        $this->smarty->assign('season' , $season) ;
+        $this->smarty->display('form_update_season.tpl') ;
+    }
 }

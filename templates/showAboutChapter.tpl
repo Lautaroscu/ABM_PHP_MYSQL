@@ -1,33 +1,28 @@
 <div class="aboutchapter">
-  {foreach from=$chapters item=$chapter}
-
-    <div class="card">
-      <img src="img/imagenoneone.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"> {$chapter->numero_cap} {$chapter->titulo_cap}</h5>
-        {$chapter->descripcion}
-      </div>
-
-      <a type="button" href="season/{$chapter->id_temp_fk}" class="btn btn-primary">Regresar</a>
+  <div class="card">
+    <img src="img/imagenoneone.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {$chapter->numero_cap} {$chapter->titulo_cap}</h5>
+      {$chapter->descripcion}
     </div>
-    {if isset($smarty.session.USER_ID)}
-    <div class="actions">
-    <ul>
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Acciones
-      </a>
 
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="showUpdate/{$chapter->id_capitulo}">Editar</a></li>
-        <li><a class="dropdown-item" href="delete/{$chapter->id_capitulo}">Borrar</a></li>
-      </ul>
-
-    </ul>
+    <a type="button" href="season/{$chapter->id_temp_fk}" class="btn btn-primary">Regresar</a>
   </div>
+  {if isset($smarty.session.USER_ID)}
+    <div class="actions">
+      <ul>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Acciones
+        </a>
+
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="showupdatechapter/{$chapter->id_capitulo}">Editar</a></li>
+          <li><a class="dropdown-item" href="deletechapter/{$chapter->id_capitulo}">Borrar</a></li>
+        </ul>
+
+      </ul>
+    </div>
   {{/if}}
-  {/foreach}
+
 </div>
-
-
-<p class="mt-3"><small>Mostrando {$count} capitulo</small></p>
 {include   file = "templates/footer.tpl"}

@@ -16,13 +16,17 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         $controller = new Controller();
-       
         $controller->showHome();
         break;
-    case 'add':
+    case 'addchapter':
+        $controller = new Controller();
         $controller->addChapter();
         break;
-    case 'delete':
+    case 'showForm' :
+        $controller = new Controller();
+        $controller->showForm2();
+        break;
+    case 'deletechapter':
         $controller = new Controller();
         $id = $params[1];
         if($id)
@@ -31,18 +35,35 @@ switch ($params[0]) {
         $controller->deleteChapter($params[0]);
 
         break;
-    case 'showUpdate':
+    case 'showupdatechapter':
         $controller = new Controller();
-
         $id = $params[1];
-        if (!empty($id))
-            $controller->editChapter($id);
+        if (!empty($id)){
+              $controller->showEditChapter($id);
+        }
         break;
-    case 'update' :
+    case 'actualizarchapter' :
         $controller = new Controller();
+         $controller->updateChapter() ;
 
-        $controller->updateChapter() ;
+       
         break ;
+    case 'addseason' :
+        $controller = new Controller();
+        $controller->addSeason() ;
+        break;
+    case 'deleteseason' :
+        $controller = new Controller();
+        $controller->deleteSeason($params[1]) ;
+        break ;
+    case 'showupdateseason' :
+        $controller = new Controller();
+        $controller->showUpdateSeason($params[1]) ; 
+        break;
+    case 'updateseason' :
+        $controller = new Controller();
+        $controller->updateSeason() ; 
+
     case 'season':
         $controller = new Controller();
         if (!empty($params[1]))

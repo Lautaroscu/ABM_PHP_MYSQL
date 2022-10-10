@@ -30,19 +30,30 @@ class ChapterModel
         $query = $this->db->prepare("SELECT * FROM capitulos WHERE id_capitulo = ?
           ");
         $query->execute([$id]);
-        $chapter = $query->fetchAll(PDO::FETCH_OBJ);
+        $chapter = $query->fetch(PDO::FETCH_OBJ);
         return $chapter;
     }
     //inserta en la db un conjunto de arreglos tipo "$_POST"
-    function insertChapter($title, $description, $num_cap, $season)
+    function insertChapter($title, $description, $numero_cap , $season )
     {
+    //     $pathImg = null ;
+    //     if($image)
+    //     $pathImg = $this->uploadImage($image);
+
+
         $query = $this->db->prepare("INSERT INTO capitulos(titulo_cap , descripcion , numero_cap , id_temp_fk) VALUES (? , ? , ? , ? )");
-        $query->execute([$title, $description, $num_cap, $season]);
+        $query->execute([$title, $description, $numero_cap , $season ]);
         return $this->db->lastInsertId();
     }
-    function updateChapter($id, $titulo_cap , $descripcion)
+    private function uploadImage($image){
+        $target = 'img/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+
+    }
+    function updateChapter($titulo_cap , $descripcion , $id)
     {
-        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?  , descripcion = ? WHERE id_capitulo = ?");
+        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?   , descripcion = ?  WHERE   id_capitulo = ?") ;
         $query->execute(array( $titulo_cap , $descripcion , $id));
         
     }

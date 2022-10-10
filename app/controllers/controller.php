@@ -3,7 +3,7 @@ require 'app/models/chapter.model.php';
 require 'app/views/chapter.view.php';
 require 'app/models/season.model.php';
 require 'app/views/season.view.php';
-require 'app/helpers/auth.helper.php' ;
+require 'app/helpers/auth.helper.php';
 
 class Controller
 {
@@ -19,33 +19,27 @@ class Controller
         $this->chapter_view = new ChapterView();
         $this->season_model = new SeasonModel();
         $this->season_view = new SeasonView();
-        $this->helper = new AuthHelper() ;
-        if(strnatcasecmp(phpversion(), '5.4.0') >= 0){
-            if(session_status() == PHP_SESSION_NONE){
-                session_start() ;
-            }
-
-        }
-        else
-        {
-            if(session_id() == ''){
-                session_start() ;
-            }
-        }
+        $this->helper = new AuthHelper();
     }
     function showHome()
-    { 
+    {
         $seasons = $this->season_model->getAllSeason();
         $this->chapter_view->showHeader($seasons);
         $this->season_view->showSeason($seasons);
     }
     function showChaptersbySeason($id = null)
     {
+
         $seasons = $this->season_model->getAllSeason();
         $chapters = $this->chapter_model->getChaptersBySeason($id);
         $this->chapter_view->showHeader($seasons);
         $this->chapter_view->showChapterFilter($chapters);
-       
+    }
+    function showForm2(){
+        $this->helper->checkLoggedIn();
+
+        $chapter = $this->chapter_model->getAllChapters();
+        $this->chapter_view->showForm2($chapter);
     }
     function aboutChapters($id_cap = null)
     {
@@ -53,42 +47,80 @@ class Controller
         $this->chapter_view->showHeader();
         $this->chapter_view->showChapterById($chapter);
     }
-    function addChapter()
+    function  addChapter()
     {
-                $this->helper->checkLoggedIn() ;
-
-        if (!empty($_POST['title'] && $_POST['description'] && $_POST['num_cap'] && $_POST['season'])) {
+        if (!empty($_POST['title'] && $_POST['description'] && $_POST['numero_cap'] && $_POST['season'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
-            $num_cap = $_POST['num_cap'];
+            $numero_cap = $_POST['numero_cap'];
             $season = $_POST['season'];
-             $this->chapter_model->insertChapter($title, $description, $num_cap, $season);
-
-            header("Location: " . BASE_URL);
         }
+        $this->chapter_model->insertChapter($title, $description, $numero_cap, $season);
+
+
+        header("Location: " . BASE_URL);
     }
-    function editChapter($id)
+
+
+    function showEditChapter($id)
     {
-   
-        $this->helper->checkLoggedIn() ;
+
+        $this->helper->checkLoggedIn();
         $chapter = $this->chapter_model->aboutChaptersById($id);
         $this->chapter_view->showFormUpdate($chapter);
-       
-        //var_dump($chapter) ;
     }
-    function updateChapter(){
-     
-        $this->helper->checkLoggedIn() ;
-      $id =  $this->chapter_model->updateChapter($_POST['id'] , $_POST['title'] , $_POST['description']);
-               header("Location: " . BASE_URL );
-
+    function updateChapter()
+    {
+        if(!empty($_POST['id'] && $_POST['title']&& $_POST['description'])){
+            $id = $_POST['id'] ;
+            $title = $_POST['title'] ;
+            $description = $_POST['description'] ;
+        }
+        $this->helper->checkLoggedIn();
+        $this->chapter_model->updateChapter($id , $title , $description);
     }
 
     function deleteChapter($id = null)
     {
-     
-        $this->helper->checkLoggedIn() ;
+
+        $this->helper->checkLoggedIn();
         $this->chapter_model->deleteChapter($id);
-        header("Location: " . BASE_URL );
+        header("Location: " . BASE_URL);
+    }
+    function addSeason()
+    {
+        $this->helper->checkLoggedIn();
+
+        if (!empty($_POST['title'] && $_POST['description'] && $_POST['premiere'])) {
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $premiere = $_POST['premiere'];
+        }
+        $this->season_model->insertSeason($title, $description, $premiere);
+        header("Location: " . BASE_URL);
+    }
+    function deleteSeason($id)
+    {
+        $this->helper->checkLoggedIn();
+
+        $this->season_model->removeSeason($id);
+        header("Location: " . BASE_URL);
+    }
+
+    function showUpdateSeason($id)
+    {
+        $season = $this->season_model->getSeasonById($id);
+        $this->season_view->showUpdateSeason($season);
+    }
+    function updateSeason()
+    {
+        if (!empty($_POST['title'] && $_POST['description'] && $_POST['premiere'] && $_POST['id'])) {
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $premiere = $_POST['premiere'];
+            $id =  $_POST['id'];
+        }
+        $this->season_model->updateSeason($title, $description, $premiere, $id);
+        header("Location: " . BASE_URL);
     }
 }

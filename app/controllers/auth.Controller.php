@@ -25,7 +25,6 @@ class authController{
     }
     function showFormLogin(){
         $this->auth_view->showFormLogin() ;
-
     }
     function validateUser(){
         $email = $_POST['email'] ;

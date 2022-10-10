@@ -10,9 +10,9 @@
           <p> <span>Protagonistas:</span> Bryan Cranston,Aaron Paul,Anna Gunn </p>
           <p> <span>Creado por:</span> Vince Gilligan </p>
           <div>
-
-             {include file = 'form_ABM.tpl'}
-
+          {if isset($smarty.session.USER_ID)}
+             {include file = 'form_seasons.tpl'}
+            {{/if}}
              <table class="table table-dark ">
                 <thead>
                    <th>Temporadas</th>
@@ -33,8 +33,8 @@
                          <td>
                          
 
-                            <a href="delete/{$season->id_temp}" type='button' class='btn btn-danger  disabled'>BORRAR</a>
-                            <a href="editar/{$season->id_temp}" type='button' class="btn btn-primary disabled">EDITAR</a>                 
+                            <a href="deleteseason/{$season->id_temp}" type='button' class='btn btn-danger  '>BORRAR</a>
+                            <a href="showupdateseason/{$season->id_temp}" type='button' class="btn btn-primary  ">EDITAR</a>                 
                          </td>
                         {{/if}}
                       </tr>

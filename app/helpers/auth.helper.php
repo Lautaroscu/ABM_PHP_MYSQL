@@ -21,7 +21,7 @@ class AuthHelper {
         }
 /**
 * Verifica que el user este logueado y si no lo está
-* lo redirige al login.
+* lanza error 403
 */
 public function checkLoggedIn() {
    

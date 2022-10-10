@@ -1,5 +1,8 @@
 <section class="chapters">  
-
+    <div class="pt-3">
+         <a class="btn btn-primary m-3" href="showForm">Agregar un capitulo</a>
+    </div>
+   
 <div class="row">
            {foreach from=$chapters item=$chapter}
     <div class="card">
