@@ -29,17 +29,16 @@ class Controller
     }
     function showChaptersbySeason($id = null)
     {
-
         $seasons = $this->season_model->getAllSeason();
         $chapters = $this->chapter_model->getChaptersBySeason($id);
         $this->chapter_view->showHeader($seasons);
         $this->chapter_view->showChapterFilter($chapters);
     }
-    function showForm2(){
+    function showForm2()
+    {
         $this->helper->checkLoggedIn();
-
-        $chapter = $this->chapter_model->getAllChapters();
-        $this->chapter_view->showForm2($chapter);
+        $season = $this->season_model->getAllSeason();
+        $this->chapter_view->showForm2($season);
     }
     function aboutChapters($id_cap = null)
     {
@@ -49,35 +48,43 @@ class Controller
     }
     function  addChapter()
     {
+
         if (!empty($_POST['title'] && $_POST['description'] && $_POST['numero_cap'] && $_POST['season'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
             $numero_cap = $_POST['numero_cap'];
             $season = $_POST['season'];
+            if (!empty($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png")) {
+                $image = $_FILES['image'];
+                $this->chapter_model->insertChapter($title, $description, $numero_cap, $season, $image);
+            } else $this->chapter_model->insertChapter($title, $description, $numero_cap, $season);
         }
-        $this->chapter_model->insertChapter($title, $description, $numero_cap, $season);
 
 
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL );
     }
 
 
     function showEditChapter($id)
     {
-
         $this->helper->checkLoggedIn();
         $chapter = $this->chapter_model->aboutChaptersById($id);
         $this->chapter_view->showFormUpdate($chapter);
     }
     function updateChapter()
     {
-        if(!empty($_POST['id'] && $_POST['title']&& $_POST['description'])){
-            $id = $_POST['id'] ;
-            $title = $_POST['title'] ;
-            $description = $_POST['description'] ;
+        if (!empty($_POST['id'] && $_POST['title'] && $_POST['description'] && $_FILES['image'])) {
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+
+            if (!empty($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png")) {
+                $img = $_FILES['image']['type'];
+                $this->helper->checkLoggedIn();
+                $this->chapter_model->updateChapter($title, $description, $img, $id);
+            } else  $this->chapter_model->updateChapter($title, $description, $img = null, $id);
+            header("Location: " . BASE_URL);
         }
-        $this->helper->checkLoggedIn();
-        $this->chapter_model->updateChapter($id , $title , $description);
     }
 
     function deleteChapter($id = null)

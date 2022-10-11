@@ -1,15 +1,16 @@
 <?php
-class userModel {
+class userModel
+{
     private $db;
 
     function __construct()
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=tpe;' . 'charset=utf8', 'root', '');
     }
-    function getUserByEmail($email){
+    function getUserByEmail($email)
+    {
         $query = $this->db->prepare("SELECT * FROM users WHERE email = ?");
-         $query->execute([$email]) ;
-         return $query->fetch(PDO::FETCH_OBJ) ;
-        }
-
+        $query->execute([$email]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
 }

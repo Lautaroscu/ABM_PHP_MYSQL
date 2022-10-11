@@ -63,6 +63,7 @@ switch ($params[0]) {
     case 'updateseason' :
         $controller = new Controller();
         $controller->updateSeason() ; 
+        break;
 
     case 'season':
         $controller = new Controller();

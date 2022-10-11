@@ -12,3 +12,4 @@
 <input required   name="premiere"  type="text">
 <button class="btn btn-secondary" type="submit">Submit</button>
 </form>
+{include file='footer.tpl'}

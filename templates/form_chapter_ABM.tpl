@@ -1,20 +1,77 @@
-<form method="post" action="actualizarchapter" class="my-4">
-        <input required type="hidden" name="id" value="{$chapter->id_capitulo}" >
-        <label>Titulo de capitulo</label>
+{include file="header.tpl"}
 
-        <input required name="title" type="text" value="{$chapter->titulo_cap}"
+<form action="{$action}" method="POST" class="my-4" enctype="multipart/form-data">
+{if $action == 'actualizarchapter'}
+<input type="hidden" name="id" value="{$chapter->id_capitulo}">
+<div class="row">
+    <div class="col-9">
+        <div class="form-group">
+            <label>Título</label>
+            <input required name="title" type="text" value="{$chapter->titulo_cap}" class="form-control">
+        </div>
+        <label>Numero de Capitulo</label>
 
+        <input required type="text" name="numero_cap" value="{$chapter->numero_cap}" class="form-control" >
 
-        <label>Descripcion</label>
-        <input required name="description" type="text" value="{$chapter->descripcion}" >
+    </div>
 
+    <div class="col-3 " >
+        <div class="form-group pb-4">
+          <input  class="form-control mt-4" type="file" name="image" value="{$chapter->img}">
+        </div>
+        <select required name="season">
+       
+        <option value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
 
-            <label>Numero de capitulo</label>
-            <input required type="button" disabled name="num_cap" type="text" value="{$chapter->numero_cap}">
-
-             <input required  disabled value="{$chapter->id_temp_fk}" >
-   
-             <button type="submit">update</button>
+        </select>
       
-    
-</form>  
+ 
+     </div>
+</div>
+
+<div class="form-group">
+    <label>Descripcion</label>
+    <textarea required name="description" class="form-control" rows="3" value="{$chapter->descripcion}"> {$chapter->descripcion}</textarea>
+</div>
+
+<button type="submit" class="btn btn-primary mt-2">update</button>
+{else if $action == 'addchapter'} 
+<div class="row">
+<div class="col-9">
+    <div class="form-group">
+        <label>Título</label>
+        <input required name="title" type="text" class="form-control">
+    </div>
+    <label>Numero de Capitulo</label>
+
+    <input required type="text" name="numero_cap" class="form-control" >
+
+</div>
+
+<div class="col-3 " >
+    <div class="form-group pb-4">
+      <input  class="form-control mt-4" type="file" name="image">
+    </div>
+    <select required name="season">
+     
+    <option value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
+
+
+    </select>
+  
+
+ </div>
+</div>
+
+<div class="form-group">
+<label>Descripcion</label>
+<textarea required name="description" class="form-control" rows="3"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary mt-2">Guardar</button>
+{/if}
+
+
+</form>
+{include file='footer.tpl'}
+

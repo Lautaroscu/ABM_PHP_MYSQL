@@ -1,3 +1,4 @@
+{include file = "header.tpl"}
 <form method="POST" action="updateseason" class="my-4">
 <input type="hidden" name="id" value="{$season->id_temp}">
 <label>Titulo de Temporada</label>
@@ -12,3 +13,4 @@
 <input  name="premiere" value="{$season->fecha_estreno}" type="text">
 <button class="btn btn-secondary" type="submit">Submit</button>
 </form>
+{include file='footer.tpl'}

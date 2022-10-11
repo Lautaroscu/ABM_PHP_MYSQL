@@ -15,12 +15,13 @@
 
     <div class="col-3 " >
         <div class="form-group pb-4">
-          <input required class="form-control mt-4" type="file" name="image">
+          <input  class="form-control mt-4" type="file" name="image">
         </div>
         <select required name="season">
-          {foreach from=$chapters item=$chapter}
-        <option value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
-      
+          {foreach from=$seasons item=$season}
+        <option value="{$season->id_temp}">Temporada {$season->id_temp}</option>
+
+      {/foreach}
         </select>
       
  
@@ -33,7 +34,7 @@
 </div>
 
 <button type="submit" class="btn btn-primary mt-2">Guardar</button>
-<a  href="season/{$chapter->id_temp_fk}"  class="btn btn-danger mt-2">Regresar</a>
-{{break}}
-{/foreach}
+
+
 </form>
+{include file='footer.tpl'}

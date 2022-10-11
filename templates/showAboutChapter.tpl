@@ -1,6 +1,6 @@
 <div class="aboutchapter">
   <div class="card">
-    <img src="img/imagenoneone.jpg" class="card-img-top" alt="...">
+    <img src="{$chapter->img}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"> {$chapter->numero_cap} {$chapter->titulo_cap}</h5>
       {$chapter->descripcion}
@@ -16,7 +16,7 @@
         </a>
 
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="showupdatechapter/{$chapter->id_capitulo}">Editar</a></li>
+          <li><a class="dropdown-item" href="showupdatechapter/{$chapter->id_capitulo}  ">Editar</a></li>
           <li><a class="dropdown-item" href="deletechapter/{$chapter->id_capitulo}">Borrar</a></li>
         </ul>
 
