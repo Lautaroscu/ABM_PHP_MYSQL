@@ -31,9 +31,9 @@ class ChapterView
               $this->smarty->display('form_chapter_ABM.tpl');
               var_dump($action);
     }
-    function showForm2($seasons)
+    function showForm2($chapters)
     {
-        $this->smarty->assign('seasons', $seasons);
+        $this->smarty->assign('chapters', $chapters);
 
         $this->smarty->display('form2_chapter.tpl');
     }

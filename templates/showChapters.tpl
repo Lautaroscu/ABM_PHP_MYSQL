@@ -7,7 +7,7 @@
 <div class="row">
            {foreach from=$chapters item=$chapter}
     <div class="card">
-            <img src="img/logo.png"> 
+            <img src="{$chapter->img}">     
             <div class="card-body">
                 <h5 class="card-title"> {$chapter->numero_cap} {$chapter->titulo_cap}</h5>
                 <p class="card-text">{$chapter->descripcion|truncate:50}</p>

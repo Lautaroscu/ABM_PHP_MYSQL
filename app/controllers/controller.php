@@ -23,6 +23,7 @@ class Controller
     }
     function showHome()
     {
+      
         $seasons = $this->season_model->getAllSeason();
         $this->chapter_view->showHeader($seasons);
         $this->season_view->showSeason($seasons);
@@ -37,8 +38,8 @@ class Controller
     function showForm2()
     {
         $this->helper->checkLoggedIn();
-        $season = $this->season_model->getAllSeason();
-        $this->chapter_view->showForm2($season);
+        $chapters = $this->chapter_model->getAllChapters();
+        $this->chapter_view->showForm2($chapters);
     }
     function aboutChapters($id_cap = null)
     {
@@ -55,13 +56,13 @@ class Controller
             $numero_cap = $_POST['numero_cap'];
             $season = $_POST['season'];
             if (!empty($_FILES['image']['type'] == "image/jpg" || $_FILES['image']['type'] == "image/jpeg" || $_FILES['image']['type'] == "image/png")) {
-                $image = $_FILES['image'];
+                $image = $_FILES['image']['tmp_name'];
                 $this->chapter_model->insertChapter($title, $description, $numero_cap, $season, $image);
             } else $this->chapter_model->insertChapter($title, $description, $numero_cap, $season);
         }
-
-
-        header("Location: " . BASE_URL );
+        $id = $_POST['id'] ;
+        $chapter = $this->chapter_model->aboutChaptersById($id);
+        header("Location: " . BASE_URL  . "season/$chapter->id_temp_fk");
     }
 
 
@@ -83,7 +84,9 @@ class Controller
                 $this->helper->checkLoggedIn();
                 $this->chapter_model->updateChapter($title, $description, $img, $id);
             } else  $this->chapter_model->updateChapter($title, $description, $img = null, $id);
-            header("Location: " . BASE_URL);
+            $chapter = $this->chapter_model->aboutChaptersById($id);
+
+            header("Location: " . BASE_URL . "season/$chapter->id_temp_fk");
         }
     }
 
@@ -92,7 +95,7 @@ class Controller
 
         $this->helper->checkLoggedIn();
         $this->chapter_model->deleteChapter($id);
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL . "season");
     }
     function addSeason()
     {
@@ -121,6 +124,8 @@ class Controller
     }
     function updateSeason()
     {
+        $this->helper->checkLoggedIn();
+
         if (!empty($_POST['title'] && $_POST['description'] && $_POST['premiere'] && $_POST['id'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];

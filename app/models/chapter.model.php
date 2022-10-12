@@ -38,6 +38,7 @@ class ChapterModel
     {
         $pathImg = null;
         if ($image){
+            var_dump($image) ;
              $pathImg = $this->uploadImage($image);
              $query = $this->db->prepare("INSERT INTO capitulos(titulo_cap , descripcion , numero_cap , id_temp_fk , img) VALUES (? , ? , ? , ? , ?)");
         $query->execute([$title, $description, $numero_cap, $season, $pathImg]);
@@ -53,8 +54,8 @@ class ChapterModel
     
     private function uploadImage($image)
     {
-        $target = 'img/' . uniqid() . '.jpg';
-        move_uploaded_file((string)$image, $target);
+        $target = 'imagen_db/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
         return $target;
     }
     function updateChapter($titulo_cap, $descripcion, $img = null, $id)

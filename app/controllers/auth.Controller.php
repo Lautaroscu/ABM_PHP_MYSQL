@@ -1,8 +1,6 @@
 <?php
 require 'app/models/user.model.php';
 require 'app/views/auth.view.php';
-
-
 class authController
 {
     private $auth_view;
@@ -12,6 +10,7 @@ class authController
     {
         $this->auth_view = new authView();
         $this->user_model = new userModel();
+
         if (strnatcasecmp(phpversion(), '5.4.0') >= 0) {
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -22,9 +21,11 @@ class authController
             }
         }
     }
+
     function showFormLogin()
     {
-        $this->auth_view->showFormLogin();
+      
+         $this->auth_view->showFormLogin();
     }
     function validateUser()
     {
