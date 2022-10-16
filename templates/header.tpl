@@ -36,7 +36,7 @@
               </a>
               <ul class="dropdown-menu">
                 {foreach from=$seasons item=$season}
-                  <li><a class="dropdown-item" href="season/{$season->titulo_temp}">Temporada {$season->titulo_temp}</a>
+                  <li><a class="dropdown-item" href="season/{$season->numero_temp}"> {$season->titulo_temp}</a>
                   </li>
                 {{/foreach}}
               </ul>

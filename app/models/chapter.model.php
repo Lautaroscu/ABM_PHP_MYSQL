@@ -1,41 +1,46 @@
 <?php
-//modelo de datos de la tabla "capitulos"
 class ChapterModel
 {
+    //modelo de datos de la tabla "capitulos"
+
     private $db;
 
     function __construct()
     {
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=tpe;' . 'charset=utf8', 'root', '');
     }
-    //toma toda la tabla capitulos
     function getAllChapters()
     {
+            //toma toda la tabla capitulos
+
         $query = $this->db->prepare("SELECT * FROM capitulos");
         $query->execute();
         $chapters = $query->fetchAll(PDO::FETCH_OBJ); //devuelve array de objetos
         return $chapters;
     }
-    //devuelve los capitulos "filtrados" dependiendo de su temporada (clave foranea)
     function getChaptersBySeason($season)
     {
-        $query = $this->db->prepare("SELECT * FROM capitulos WHERE id_temp_fk = ?");
+            //devuelve los capitulos "filtrados" dependiendo de su temporada (clave foranea)
+
+        $query = $this->db->prepare("SELECT * FROM capitulos  WHERE id_temp_fk = ?");
         $query->execute([$season]);
         $chapters = $query->fetchAll(PDO::FETCH_OBJ); //devuelve array de objetos
         return $chapters;
     }
-    //devuelve un unico capitulo dependiendo su id
     function aboutChaptersById($id)
     {
+            //devuelve un unico capitulo dependiendo su id
+
         $query = $this->db->prepare("SELECT * FROM capitulos WHERE id_capitulo = ?
           ");
         $query->execute([$id]);
         $chapter = $query->fetch(PDO::FETCH_OBJ);
         return $chapter;
     }
-    //inserta en la db un conjunto de arreglos tipo "$_POST"
     function insertChapter($title, $description, $numero_cap, $season, $image = null)
     {
+            //inserta en la db un conjunto de arreglos tipo "$_POST"
+
         $pathImg = null;
         if ($image){
             var_dump($image) ;
@@ -65,10 +70,7 @@ class ChapterModel
         $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?   , descripcion = ? , img = ?  WHERE   id_capitulo = ?");
         $query->execute(array($titulo_cap, $descripcion, $pathImg, $id));
     }
-    else {
-        $query = $this->db->prepare("UPDATE capitulos SET titulo_cap = ?   , descripcion = ? , img = ?  WHERE   id_capitulo = ?");
-        $query->execute(array($titulo_cap, $descripcion, $pathImg = null, $id));
-    }
+   
         }
             
     function deleteChapter($id)

@@ -18,4 +18,9 @@ class SeasonView
         $this->smarty->assign('season' , $season) ;
         $this->smarty->display('form_update_season.tpl') ;
     }
+    function ConfirmDelete($season)
+    {
+        $this->smarty->assign("season" , $season);
+        $this->smarty->display("confirm.delete.tpl");
+    }
 }

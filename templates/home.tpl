@@ -18,6 +18,7 @@
                    <th>Temporadas</th>
                    <th>Descripcion</th>
                    <th>Fecha de Estreno</th>
+                   <th>Numero de Temporada</th>
                    {if isset($smarty.session.USER_ID)}
                    <th>Acciones</th>
                    {{/if}}
@@ -29,12 +30,14 @@
                          <td>{$season->titulo_temp}</td>
                          <td>{$season->descripcion}</td>
                          <td>{$season->fecha_estreno}</td>
+                         <td>{$season->numero_temp}</td>
+
                          {if isset($smarty.session.USER_ID)}
                          <td>
                          
 
-                            <a href="deleteseason/{$season->id_temp}" type='button' class='btn btn-danger  '>BORRAR</a>
-                            <a href="showupdateseason/{$season->id_temp}" type='button' class="btn btn-primary  ">EDITAR</a>                 
+                            <a href="confirm-delete/{$season->id_temp}" type='button' class='btn btn-danger  '>BORRAR</a>
+                            <a href="show-update-season/{$season->id_temp}" type='button' class="btn btn-primary  ">EDITAR</a>                 
                          </td>
                         {{/if}}
                       </tr>

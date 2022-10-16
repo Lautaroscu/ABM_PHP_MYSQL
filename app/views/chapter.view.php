@@ -25,22 +25,24 @@ class ChapterView
     }
     function showFormUpdate($chapter)
     {
-        $action = 'actualizarchapter';
                $this->smarty->assign('chapter', $chapter);
-                $this->smarty->assign('action', $action) ;
               $this->smarty->display('form_chapter_ABM.tpl');
-              var_dump($action);
+           
     }
-    function showForm2($chapters)
+    function showForm2($chapters , $seasons)
     {
         $this->smarty->assign('chapters', $chapters);
+        $this->smarty->assign('seasons', $seasons);
+
 
         $this->smarty->display('form2_chapter.tpl');
     }
 
-    function showHeader($seasons = null)
+    function showHeader($seasons = null , $season = null)
     {
         $this->smarty->assign('seasons', $seasons);
+        $this->smarty->assign('season', $season);
+
 
         $this->smarty->display('header.tpl');
     }

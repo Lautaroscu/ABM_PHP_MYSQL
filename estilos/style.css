@@ -113,4 +113,24 @@ table {
 .error p{
     text-align: left;
 }    
+.row{
+    display: flex;
+  justify-content: space-between;
+   
+}
+.row div label,input {
+    display: flex;
+        
+}
+.confirm div{
+    display: flex;
+    margin: 5%;
+    flex-direction: row;
+    
+}
+.confirm li{
+    list-style: none;
+    margin-left: 5%;
+}
+
 

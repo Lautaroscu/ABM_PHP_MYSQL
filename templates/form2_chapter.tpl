@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-<form action="addchapter" method="POST" class="my-4" enctype="multipart/form-data">
+<form action="add-chapter" method="POST" class="my-4" enctype="multipart/form-data">
 {foreach from=$chapters item=$chapter}
 <input type="hidden" name="id" value="{$chapter->id_capitulo}"> 
 {{/foreach}}
@@ -20,9 +20,9 @@
           <input  class="form-control mt-4" type="file" name="image">
         </div>
         <select required name="season">
-          {foreach from=$chapters item=$chapter}
-        <option selected value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
-        {break}
+          {foreach from=$seasons item=$season}
+        <option selected value="{$season->id_temp}"> {$season->titulo_temp}</option>
+        
       {/foreach}
         </select>
       

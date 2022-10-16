@@ -1,7 +1,6 @@
-
 <section class="chapters">  
     <div class="pt-3">
-         <a class="btn btn-primary m-3" href="showForm">Agregar un capitulo</a>
+         <a class="btn btn-primary m-3" href="show-form">Agregar un capitulo</a>
     </div>
    
 <div class="row">

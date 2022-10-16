@@ -1,6 +1,7 @@
 <?php
 require 'app/controllers/controller.php';
 require 'app/controllers/auth.Controller.php' ;
+
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 // lee la acción
@@ -18,15 +19,15 @@ switch ($params[0]) {
         $controller = new Controller();
         $controller->showHome();
         break;
-    case 'addchapter':
+    case 'add-chapter':
         $controller = new Controller();
         $controller->addChapter();
         break;
-    case 'showForm' :
+    case 'show-form' :
         $controller = new Controller();
         $controller->showForm2();
         break;
-    case 'deletechapter':
+    case 'delete-chapter':
         $controller = new Controller();
         $id = $params[1];
         if($id)
@@ -35,32 +36,36 @@ switch ($params[0]) {
         $controller->deleteChapter($params[0]);
 
         break;
-    case 'showupdatechapter':
+    case 'show-update-chapter':
         $controller = new Controller();
         $id = $params[1];
         if (!empty($id)){
               $controller->showEditChapter($id);
         }
         break;
-    case 'actualizarchapter' :
+    case 'update-chapter' :
         $controller = new Controller();
          $controller->updateChapter() ;
 
        
         break ;
-    case 'addseason' :
+    case 'add-season' :
         $controller = new Controller();
         $controller->addSeason() ;
         break;
-    case 'deleteseason' :
+    case 'confirm-delete' :
+        $controller = new Controller();
+        $controller->ConfirmDelete($params[1]) ;
+        break ;
+    case 'delete-season':
         $controller = new Controller();
         $controller->deleteSeason($params[1]) ;
         break ;
-    case 'showupdateseason' :
+    case 'show-update-season' :
         $controller = new Controller();
         $controller->showUpdateSeason($params[1]) ; 
         break;
-    case 'updateseason' :
+    case 'update-season' :
         $controller = new Controller();
         $controller->updateSeason() ; 
         break;
@@ -93,6 +98,10 @@ switch ($params[0]) {
         break;
 
     default:
-        echo 'error 404 not found';
+    header('HTTP/1.0 404 Not Found', true, 404);
+    $controller = new Controller();
+
+      $controller->showError() ;
+        
         break;
 }

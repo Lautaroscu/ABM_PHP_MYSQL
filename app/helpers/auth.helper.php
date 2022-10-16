@@ -1,8 +1,8 @@
 <?php
 require_once './libs/smarty/libs/Smarty.class.php';
-class AuthHelper
+ class AuthHelper
 {
-    private $smarty;
+    protected $smarty;
 
     function __construct()
     {
@@ -17,21 +17,26 @@ class AuthHelper
             }
         }
     }
+   
+    public function checkLoggedIn() 
     /**
      * Verifica que el user este logueado y si no lo está
      * lanza error 403
      */
-    public function checkLoggedIn()
     {
 
         if (!isset($_SESSION['IS_LOGGED'])) {
-            $this->showError('Inicie sesion para poder ejetucar esta accion');
+            $this->showError('Inicie sesion para poder ejetucar esta accion' , null);
+        
             die();
+
         }
     }
-    function showError($error = null)
+    function showError($Forbidden = null,$NotFound = null)
     {
-        $this->smarty->assign('error', $error);
+        $this->smarty->assign('Forbidden', $Forbidden);
+        $this->smarty->assign('NotFound', $NotFound);
+
         $this->smarty->display('showError.tpl');
     }
 }
