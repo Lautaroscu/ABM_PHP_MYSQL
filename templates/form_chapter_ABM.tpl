@@ -19,9 +19,7 @@
           <input  class="form-control mt-4" type="file" name="image" value="{$chapter->img}">
         </div>
         <select required name="season">
-       
         <option value="{$chapter->id_temp_fk}">Temporada {$chapter->id_temp_fk}</option>
-
         </select>
       
  

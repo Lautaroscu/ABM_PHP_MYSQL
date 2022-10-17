@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+
 <form action="add-chapter" method="POST" class="my-4" enctype="multipart/form-data">
 {foreach from=$chapters item=$chapter}
 <input type="hidden" name="id" value="{$chapter->id_capitulo}"> 
