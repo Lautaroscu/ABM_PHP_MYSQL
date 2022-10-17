@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2022 a las 03:05:08
+-- Tiempo de generación: 17-10-2022 a las 16:16:36
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -33,32 +33,32 @@ CREATE TABLE `capitulos` (
   `descripcion` varchar(255) NOT NULL,
   `numero_cap` int(11) NOT NULL,
   `id_temp_fk` int(11) NOT NULL,
-  `image` varchar(45) NOT NULL
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `capitulos`
 --
 
-INSERT INTO `capitulos` (`id_capitulo`, `titulo_cap`, `descripcion`, `numero_cap`, `id_temp_fk`, `image`) VALUES
-(1, 'Principio del fin', 'Un profesorr de química de escuela secundaria recurre a la venta de drogas para mantener a su familia', 1, 1, ''),
-(3, 'Y la bolsa en el rio', 'Mientras Walt limpia el desorden que quedó tras su primer negocio de drogas, piensa en decirle a Skyler la verdad sobre su enfermedad.\r\n\r\n', 3, 1, ''),
-(4, 'Cancer', 'Al ser forzado a contar la verdad acerca de su enfermedad, Walt enfrenta el problema de cómo pagar una serie de caros tratamientos contra el cáncer.\r\n\r\n', 4, 1, ''),
-(5, 'Materia gris', 'Skyler organiza una intervención para convencer a Walt de que acepte la generosa oferta de su excompañero de investigaciones de pagar el tratamiento contra el cáncer.\r\n\r\n', 5, 1, ''),
-(6, 'un loco puniado de nada', 'Los efectos secundarios y el costo del tratamiento crecen, y Walt exige que Jesse encuentre un revendedor para sus drogas; Jesse termina en problemas con un exconvicto.\r\n\r\n', 6, 1, ''),
-(7, 'Acuerdo no violento', 'Tras el encuentro cercano de Jesse con la muerte, Walt acepta producir más drogas para Tuco, mientras Skyler sospecha que su hermana robó un costoso regalo para bebés.\r\n\r\n', 7, 1, ''),
-(9, 'A las brasas', 'Mientras la DEA pone en marcha la búsqueda de Tuco, Skyler recurre a Hank para que la ayude a encontrar a Walt.\r\n\r\n', 2, 2, ''),
-(10, 'Picadura de una abeja muerta', 'Walt intenta volver a acercarse a Skyler, y Jesse se encuentra sin hogar después de que sus padres lo echan de su casa.\r\n\r\n', 3, 2, ''),
-(11, 'Abajo', 'Walt lucha por intentar salvar su relación con Skyler, y Jesse se queda sin hogar cuando sus padres lo desalojan.\r\n\r\n', 4, 2, ''),
-(12, 'Rotura', 'Hank trata de recobrar la compostura tras su encuentro con Tuco. Mientras, Jesse forma una pandilla para distribuir más producto por la ciudad.\r\n\r\n', 5, 2, ''),
-(13, 'Cucu', 'Jesse busca a los adictos que robaron las drogas a Skinny Pete, y Walt lucha por sostener su coartada para explicar cómo ha pagado el tratamiento de cáncer.\r\n\r\n', 6, 2, ''),
-(14, 'Negro y Azul', 'La reputación de narco implacable de Jesse lleva a Walt a ampliar sus actividades; la incursión de Hank en el mundo de la oficina de la DEA en El Paso lo estremece.\r\n\r\n', 7, 2, ''),
-(15, 'Llama a Saul!', 'El arresto de Badger obliga a Walt y Jesse a contratar a un abogado de mala reputación.\r\n\r\n\r\n', 8, 2, ''),
-(16, 'Cuatro dias afuera', 'Preocupado porque no le queda mucha vida, Walt intenta cubrir las necesidades de su familia en una maratónica sesión de preparación de metanfetamina con Jesse.\r\n\r\n', 9, 2, ''),
-(17, 'Terminado', 'Al recibir buenas noticias sobre el tratamiento de cáncer, Walt acude a su cuñado, Hank, antes de centrar su atención en hacer las cosas bien en su hogar.\r\n\r\n', 10, 2, ''),
-(18, 'Mandala', 'Skyler tiene conflictos por sus sentimientos hacia su jefe. La muerte de un vendedor callejero fuerza a Walt a buscar otro lugar para vender la metanfetamina.\r\n\r\n', 11, 2, ''),
-(19, 'Phoenix', 'Walt intenta encaminar su vida y la de Jesse mientras se prepara para la cirugía y pretende esconder la procedencia de su dinero a Skyler y Walt Jr.\r\n\r\n', 12, 2, ''),
-(20, 'ABQ', 'Walt intenta encaminar su vida y la de Jesse mientras se prepara para la cirugía y pretende esconder la procedencia de su dinero a Skyler y Walt Jr.\r\n\r\n', 13, 2, ''),
+INSERT INTO `capitulos` (`id_capitulo`, `titulo_cap`, `descripcion`, `numero_cap`, `id_temp_fk`, `img`) VALUES
+(1, 'Principio del fin', 'Un profesor de química de escuela secundaria recurre a la venta de drogas para mantener a su familia', 1, 1, 'imagen_db/63482010de4e1.jpg'),
+(3, 'Y la bolsa en el rio', ' Mientras Walt limpia el desorden que quedó tras su primer negocio de drogas, piensa en decirle a Skyler la verdad sobre su enfermedad.\r\n\r\n', 3, 1, 'imagen_db/634821889a3d3.jpg'),
+(4, 'Cancer', ' Al ser forzado a contar la verdad acerca de su enfermedad, Walt enfrenta el problema de cómo pagar una serie de caros tratamientos contra el cáncer.\r\n\r\n', 4, 1, 'imagen_db/634821965f136.jpg'),
+(5, 'Materia gris', ' Skyler organiza una intervención para convencer a Walt de que acepte la generosa oferta de su excompañero de investigaciones de pagar el tratamiento contra el cáncer.\r\n\r\n', 5, 1, 'imagen_db/634821a189816.jpg'),
+(6, 'un loco puniado de nada', ' Los efectos secundarios y el costo del tratamiento crecen, y Walt exige que Jesse encuentre un revendedor para sus drogas; Jesse termina en problemas con un exconvicto.\r\n\r\n', 6, 1, 'imagen_db/634b4835cd2b2.jpg'),
+(7, 'Acuerdo no violento', ' Tras el encuentro cercano de Jesse con la muerte, Walt acepta producir más drogas para Tuco, mientras Skyler sospecha que su hermana robó un costoso regalo para bebés.\r\n\r\n', 7, 1, 'imagen_db/634b48406d97f.jpg'),
+(9, 'A las brasas', ' Mientras la DEA pone en marcha la búsqueda de Tuco, Skyler recurre a Hank para que la ayude a encontrar a Walt.\r\n\r\n', 2, 2, 'imagen_db/634b49898fec1.jpg'),
+(10, 'Picadura de una abeja muerta', ' Walt intenta volver a acercarse a Skyler, y Jesse se encuentra sin hogar después de que sus padres lo echan de su casa.\r\n\r\n', 3, 2, 'imagen_db/634b4998cfe2a.jpg'),
+(11, 'Abajo', '  Walt lucha por intentar salvar su relación con Skyler, y Jesse se queda sin hogar cuando sus padres lo desalojan.\r\n\r\n', 4, 2, 'imagen_db/634b49e766211.jpg'),
+(12, 'Rotura', '  Hank trata de recobrar la compostura tras su encuentro con Tuco. Mientras, Jesse forma una pandilla para distribuir más producto por la ciudad.\r\n\r\n', 5, 2, 'imagen_db/634b49d7e887e.jpg'),
+(13, 'Cucu', ' Jesse busca a los adictos que robaron las drogas a Skinny Pete, y Walt lucha por sostener su coartada para explicar cómo ha pagado el tratamiento de cáncer.\r\n\r\n', 6, 2, 'imagen_db/634b49f6ddeeb.jpg'),
+(14, 'Negro y Azul', ' La reputación de narco implacable de Jesse lleva a Walt a ampliar sus actividades; la incursión de Hank en el mundo de la oficina de la DEA en El Paso lo estremece.\r\n\r\n', 7, 2, 'imagen_db/634b4a03612a2.jpg'),
+(15, 'Llama a Saul!', ' El arresto de Badger obliga a Walt y Jesse a contratar a un abogado de mala reputación.\r\n\r\n\r\n', 8, 2, 'imagen_db/634b4a17ba8d8.jpg'),
+(16, 'Cuatro dias afuera', ' Preocupado porque no le queda mucha vida, Walt intenta cubrir las necesidades de su familia en una maratónica sesión de preparación de metanfetamina con Jesse.\r\n\r\n', 9, 2, 'imagen_db/634b4a387fcb6.jpg'),
+(17, 'Terminado', ' Al recibir buenas noticias sobre el tratamiento de cáncer, Walt acude a su cuñado, Hank, antes de centrar su atención en hacer las cosas bien en su hogar.\r\n\r\n', 10, 2, 'imagen_db/634b4a43d2d24.jpg'),
+(18, 'Mandala', ' Skyler tiene conflictos por sus sentimientos hacia su jefe. La muerte de un vendedor callejero fuerza a Walt a buscar otro lugar para vender la metanfetamina.\r\n\r\n', 11, 2, 'imagen_db/634b4a5302a6d.jpg'),
+(19, 'Phoenix', ' Walt intenta encaminar su vida y la de Jesse mientras se prepara para la cirugía y pretende esconder la procedencia de su dinero a Skyler y Walt Jr.\r\n\r\n', 12, 2, 'imagen_db/634b4a63df816.jpg'),
+(20, 'ABQ', ' Walt intenta encaminar su vida y la de Jesse mientras se prepara para la cirugía y pretende esconder la procedencia de su dinero a Skyler y Walt Jr.\r\n\r\n', 13, 2, 'imagen_db/634b4a7c06280.jpg'),
 (21, 'No mas', 'Tras el desastre aéreo de Albuquerque, Skyler obliga a Walt a mudarse, mientras la estadía de Jesse en rehabilitación lo ayuda a aceptar su rol en el fatal choque aéreo.\r\n\r\n', 1, 3, ''),
 (22, ' Caballo sin nombre', 'Skyler está decidida a divorciarse, y Walt acaba en la mira de dos asesinos de un cártel mexicano que buscan venganza.\r\n\r\n', 2, 3, ''),
 (23, 'T. S. T.', 'Jesse se cuestiona volver al negocio de las drogas ya que una organización de narcotraficantes espera con ansias vengar la muerte de uno de sus miembros.\r\n\r\n', 3, 3, ''),
@@ -100,8 +100,7 @@ INSERT INTO `capitulos` (`id_capitulo`, `titulo_cap`, `descripcion`, `numero_cap
 (59, 'Tohajiilee', 'La presión aumenta para Walt, de un modo que nunca habría esperado.\r\n\r\n', 13, 5, ''),
 (60, 'Ozymandias', 'Todos deben enfrentar circunstancias radicalmente distintas. Todos, sin excepción.\r\n\r\n', 14, 5, ''),
 (61, 'Pizarra de granito', 'Los sucesos que se iniciaron hace mucho tiempo marchan hacia una conclusión.\r\n\r\n', 15, 5, ''),
-(62, 'Felina', 'El final de la serie.\r\n\r\n', 16, 5, ''),
-(121, 'e', 'e', 4, 2, '');
+(62, 'Felina', 'El final de la serie.\r\n\r\n', 16, 5, '');
 
 -- --------------------------------------------------------
 
@@ -113,19 +112,20 @@ CREATE TABLE `temporadas` (
   `id_temp` int(11) NOT NULL,
   `titulo_temp` varchar(45) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
-  `fecha_estreno` year(4) NOT NULL
+  `fecha_estreno` year(4) NOT NULL,
+  `numero_temp` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `temporadas`
 --
 
-INSERT INTO `temporadas` (`id_temp`, `titulo_temp`, `descripcion`, `fecha_estreno`) VALUES
-(1, '1', 'A medida que Walter construye su imperio, su esposa empieza a sospechar de su errática conducta, y la DEA inicia la búsqueda de un nuevo líder de la droga.\r\n\r\n', 2008),
-(2, '2', 'Walter y Jesse, llegan alto en el juego de las drogas, llamando la atención del cartel rival y poniendo en peligro a Hank; cuñado de Walter y agente de la DEA.\r\n\r\n', 2009),
-(3, '3', 'Pensando en su familia, Walter sigue cocinando metanfetamina en secreto. Mientras, Jesse, ex alumno de Walter, se ha hecho adicto a la heroína.\r\n\r\n', 2010),
-(4, '4', 'Bryan Cranston regresa en una nueva temporada como Walter White, quien sigue elaborando metanfetaminas e intentando superar al narcotraficante Gus Fring.\r\n\r\n', 2011),
-(5, '5', 'En la temporada final, Walt ya no tiene que esforzarse por ser malo. Su vida sigue en una espiral descendente que le lleva a lo más alto de un imperio de la droga.\r\n\r\n', 2012);
+INSERT INTO `temporadas` (`id_temp`, `titulo_temp`, `descripcion`, `fecha_estreno`, `numero_temp`) VALUES
+(1, 'Temporada 1', 'A medida que Walter construye su imperio, su esposa empieza a sospechar de su errática conducta, y la DEA inicia la búsqueda de un nuevo líder de la droga.', 2008, 1),
+(2, 'Temporada 2', 'Walter y Jesse, llegan alto en el juego de las drogas, llamando la atención del cartel rival y poniendo en peligro a Hank; cuñado de Walter y agente de la DEA.', 2009, 2),
+(3, 'Temporada 3', 'Pensando en su familia, Walter sigue cocinando metanfetamina en secreto. Mientras, Jesse, ex alumno de Walter, se ha hecho adicto a la heroína.', 2010, 3),
+(4, 'Temporada 4', 'Bryan Cranston regresa en una nueva temporada como Walter White, quien sigue elaborando metanfetaminas e intentando superar al narcotraficante Gus Fring.', 2011, 4),
+(5, 'Temporada 5', 'En la temporada final, Walt ya no tiene que esforzarse por ser malo. Su vida sigue en una espiral descendente que le lleva a lo más alto de un imperio de la droga.', 2012, 5);
 
 -- --------------------------------------------------------
 
@@ -144,7 +144,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `email`, `password`) VALUES
-(1, 'userharcod@email.com', '$2a$12$qE1FYHz9TKndADayjuxQ8ek1MEuiHCaflQlC0n19/MGP/Xvk2IKYS');
+(1, 'userharcod@email.com', '$2a$12$qE1FYHz9TKndADayjuxQ8ek1MEuiHCaflQlC0n19/MGP/Xvk2IKYS'),
+(2, 'scuffilautaro@gmail.com', '$2a$12$qE1FYHz9TKndADayjuxQ8ek1MEuiHCaflQlC0n19/MGP/Xvk2IKYS');
 
 --
 -- Índices para tablas volcadas
@@ -177,19 +178,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `capitulos`
 --
 ALTER TABLE `capitulos`
-  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id_capitulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 
 --
 -- AUTO_INCREMENT de la tabla `temporadas`
 --
 ALTER TABLE `temporadas`
-  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -199,7 +200,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `capitulos`
 --
 ALTER TABLE `capitulos`
-  ADD CONSTRAINT `capitulos_ibfk_1` FOREIGN KEY (`id_temp_fk`) REFERENCES `temporadas` (`id_temp`);
+  ADD CONSTRAINT `capitulos_ibfk_1` FOREIGN KEY (`id_temp_fk`) REFERENCES `temporadas` (`id_temp`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

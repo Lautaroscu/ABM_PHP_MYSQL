@@ -85,6 +85,7 @@ switch ($params[0]) {
             $controller->aboutChapters($params[0]);
         break;
     case 'login' :
+        $controller = new Controller() ;
         $authController = new authController() ;
         $authController->showFormLogin() ;
         break ;

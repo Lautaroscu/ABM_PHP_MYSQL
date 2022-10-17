@@ -22,13 +22,13 @@ class Controller
         $this->season_model = new SeasonModel();
         $this->season_view = new SeasonView();
         $this->helper = new AuthHelper();
-        $this->seasons =$this->season_model->getAllSeason();
+        $this->seasons = $this->season_model->getAllSeason();
         $this->header = $this->chapter_view->showHeader($this->seasons);
 
     }
     function showHome()
     {
-        $this->season_view->showSeason($this->seasons);
+        $this->season_view->showSeason($this->seasons); 
     }
     function showChaptersbySeason($id = null)
     {
