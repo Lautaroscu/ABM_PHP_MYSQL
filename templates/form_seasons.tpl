@@ -7,7 +7,7 @@
 
 
 <label>Descripcion</label>
-<input required  name="description"  type="text" >
+<textarea required  name="description"  type="text" > </textarea>
 </div class="update-container">
 <div>
 <label>Estreno</label>

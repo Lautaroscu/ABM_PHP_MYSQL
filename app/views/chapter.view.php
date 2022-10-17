@@ -38,12 +38,9 @@ class ChapterView
         $this->smarty->display('form2_chapter.tpl');
     }
 
-    function showHeader($seasons = null , $season = null)
+    function showHeader($seasons = null)
     {
         $this->smarty->assign('seasons', $seasons);
-        $this->smarty->assign('season', $season);
-
-
         $this->smarty->display('header.tpl');
     }
 

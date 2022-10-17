@@ -1,9 +1,10 @@
 <?php
 require_once './libs/smarty/libs/Smarty.class.php';
+require_once 'app/models/season.model.php' ;
  class AuthHelper
 {
-    protected $smarty;
 
+    protected $smarty;
     function __construct()
     {
         $this->smarty = new Smarty();

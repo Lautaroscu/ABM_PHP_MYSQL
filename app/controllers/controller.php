@@ -12,6 +12,8 @@ class Controller
     private $season_model;
     private $season_view;
     private $helper;
+    private $seasons;
+    private $header;
 
     function __construct()
     {
@@ -20,34 +22,28 @@ class Controller
         $this->season_model = new SeasonModel();
         $this->season_view = new SeasonView();
         $this->helper = new AuthHelper();
+        $this->seasons =$this->season_model->getAllSeason();
+        $this->header = $this->chapter_view->showHeader($this->seasons);
+
     }
     function showHome()
     {
-      
-        $seasons = $this->season_model->getAllSeason();
-        $this->chapter_view->showHeader($seasons);
-        $this->season_view->showSeason($seasons);
+        $this->season_view->showSeason($this->seasons);
     }
     function showChaptersbySeason($id = null)
     {
-      //  $season = $this->season_model->getSeasonById($id) ;
-        $seasons = $this->season_model->getAllSeason();
         $chapters = $this->chapter_model->getChaptersBySeason($id);
-        $this->chapter_view->showHeader($seasons);
         $this->chapter_view->showChapterFilter($chapters);
     }
     function showForm2()
     {
         $this->helper->checkLoggedIn();
         $chapters = $this->chapter_model->getAllChapters();
-        $seasons = $this->season_model->getAllSeason() ;
-        $this->chapter_view->showForm2($chapters , $seasons);
+        $this->chapter_view->showForm2($chapters , $this->seasons);
     }
     function aboutChapters($id_cap = null)
     {
-
-        $chapter = $this->chapter_model->aboutChaptersById($id_cap);
-          $this->chapter_view->showHeader();
+        $chapter = $this->chapter_model->aboutChaptersById($id_cap);        
         $this->chapter_view->showChapterById($chapter);
     }
     function  addChapter()

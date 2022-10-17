@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+
 
 <form action="update-chapter" method="POST" class="my-4" enctype="multipart/form-data">
 <input type="hidden" name="id" value="{$chapter->id_capitulo}">

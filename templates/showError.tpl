@@ -1,4 +1,4 @@
-{include file = "header.tpl"}
+
 {if $Forbidden}
     
         <div class="alert alert-danger mt-3">
