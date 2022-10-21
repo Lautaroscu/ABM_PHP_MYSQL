@@ -1,4 +1,4 @@
-{include file = "header.tpl"}
+
 <form method="POST" action="update-season" class="my-4">
 <input type="hidden" name="id" value="{$season->id_temp}">
 <label>Titulo de Temporada</label>

@@ -132,16 +132,15 @@ class Controller
     {
         $this->helper->checkLoggedIn();
 
-        if (!empty($_POST['title'] && $_POST['description'] && $_POST['premiere'] && $_POST['id'] && $_POST['number-season'])) {
+        if (!empty($_POST['title'] && $_POST['description'] && $_POST['premiere'] && $_POST['id'])) {
             $title = $_POST['title'];
             $description = $_POST['description'];
             $premiere = $_POST['premiere'];
-            $number_season = $_POST['number-season'] ;
-            $id =  $_POST['id'];
-            $this->season_model->updateSeason($title, $description, $premiere, $number_season , $id);
+                        $id =  $_POST['id'];
+            $this->season_model->updateSeason($title, $description, $premiere, $id);
         }
       
-        header("Location: " . BASE_URL);
+       header("Location: " . BASE_URL);
     }
     function showError(){
         $this->helper->showError(null ,'No se encontraron resultados') ;

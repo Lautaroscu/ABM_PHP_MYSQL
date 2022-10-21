@@ -30,9 +30,9 @@ class SeasonModel
         $query = $this->db->prepare("DELETE FROM temporadas WHERE id_temp = ?");
         $query->execute([$id]);
     }
-    function updateSeason($title, $description, $premiere, $number_season , $id)
+    function updateSeason($title, $description, $premiere, $id)
     {
-        $query = $this->db->prepare("UPDATE temporadas SET titulo_temp = ? , descripcion = ? , fecha_estreno = ? , numero_temp = ? WHERE id_temp = ?");
-        $query->execute([$title, $description, $premiere, $number_season , $id]);
+        $query = $this->db->prepare("UPDATE temporadas SET titulo_temp = ? , descripcion = ? , fecha_estreno = ?  WHERE id_temp = ?");
+        $query->execute([$title, $description, $premiere, $id]);
     }
 }
